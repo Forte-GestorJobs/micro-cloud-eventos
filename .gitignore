@@ -1,0 +1,18 @@
+# Ignorar la carpeta .idea en la raíz del proyecto
+.idea/
+
+# Ignorar todos los archivos .iml en el proyecto
+*.iml
+
+# Ignorar cualquier archivo .xd y xd.lck dentro de la carpeta .idea
+.idea/copilot/chatSessions/*.xd
+.idea/copilot/chatSessions/*.xd.lck
+
+# Ignorar cualquier archivo .pb dentro de la carpeta .idea/sonarlint/issuestore
+.idea/sonarlint/issuestore/*.pb
+
+# Ignorar cualquier archivo .pb dentro de la carpeta .idea/sonarlint/securityhotspotstore
+.idea/sonarlint/securityhotspotstore/*.pb
+
+# Ignorar el archivo misc.xml dentro de la carpeta .idea en cualquier lugar del proyecto
+.idea/**/misc.xml
