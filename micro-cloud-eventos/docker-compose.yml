@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  microcloudeventos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #image: ghcr.io/forte-gestorjobs/micro-gestion-usuarios:latest
+    environment:
+      MCE_DBHOST: gestor-jobs-9572.7tc.aws-eu-central-1.cockroachlabs.cloud
+      MCE_DBNAME: gestor-jobs
+      MCE_DBPORT: 26257
+      MCE_DBPWD: 1uapORTatdlFQRMvqErw4Q
+      MCE_DBUSER: postgres
+    ports:
+      - "8083:8083"
+    volumes:
+      - /tmp
+    restart: unless-stopped
