@@ -94,6 +94,7 @@
   </dependencies>
 
   <build>
+    <finalName>micro-cloud-eventos</finalName>
     <plugins>
       <!-- Plugin Surefire para pruebas unitarias -->
       <plugin>
@@ -112,6 +113,23 @@
           <trimStackTrace>false</trimStackTrace>
           <redirectTestOutputToFile>true</redirectTestOutputToFile>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>repackage</goal>
+                </goals>
+                <configuration>
+                    <classifier>spring-boot</classifier>
+                    <mainClass>
+                      nttdata.messalhi.forte.App
+                    </mainClass>
+                </configuration>
+            </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
