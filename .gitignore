@@ -1,18 +1,38 @@
-# Ignorar la carpeta .idea en la raíz del proyecto
-.idea/
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
-# Ignorar todos los archivos .iml en el proyecto
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
 *.iml
+*.ipr
 
-# Ignorar cualquier archivo .xd y xd.lck dentro de la carpeta .idea
-.idea/copilot/chatSessions/*.xd
-.idea/copilot/chatSessions/*.xd.lck
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-# Ignorar cualquier archivo .pb dentro de la carpeta .idea/sonarlint/issuestore
-.idea/sonarlint/issuestore/*.pb
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-# Ignorar cualquier archivo .pb dentro de la carpeta .idea/sonarlint/securityhotspotstore
-.idea/sonarlint/securityhotspotstore/*.pb
+### VS Code ###
+.vscode/
 
-# Ignorar el archivo misc.xml dentro de la carpeta .idea en cualquier lugar del proyecto
-.idea/**/misc.xml
+### Mac OS ###
+.DS_Store

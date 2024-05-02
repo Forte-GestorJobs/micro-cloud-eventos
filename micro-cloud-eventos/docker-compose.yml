@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  microcloudeventos:
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
+    image: ghcr.io/forte-gestorjobs/micro-cloud-eventos:latest
+    environment:
+      MCE_DBHOST: ${MCE_DBHOST}
+      MCE_DBNAME: ${MCE_DBNAME}
+      MCE_DBPORT: ${MCE_DBPORT}
+      MCE_DBPWD: ${MCE_DBPWD}
+      MCE_DBUSER: ${MCE_DBUSER}
+    ports:
+      - "8083:8083"
+    volumes:
+      - /tmp
+    restart: unless-stopped
