@@ -7,11 +7,11 @@ services:
     #  dockerfile: Dockerfile
     image: ghcr.io/forte-gestorjobs/micro-cloud-eventos:latest
     environment:
-      MCE_DBHOST: gestor-jobs-9572.7tc.aws-eu-central-1.cockroachlabs.cloud
-      MCE_DBNAME: gestor-jobs
-      MCE_DBPORT: 26257
-      MCE_DBPWD: 1uapORTatdlFQRMvqErw4Q
-      MCE_DBUSER: postgres
+      MCE_DBHOST: ${MCE_DBHOST}
+      MCE_DBNAME: ${MCE_DBNAME}
+      MCE_DBPORT: ${MCE_DBPORT}
+      MCE_DBPWD: ${MCE_DBPWD}
+      MCE_DBUSER: ${MCE_DBUSER}
     ports:
       - "8083:8083"
     volumes:
