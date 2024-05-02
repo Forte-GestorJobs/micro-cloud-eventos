@@ -4,7 +4,6 @@ package nttdata.messalhi.forte.services;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import nttdata.messalhi.forte.config.DatabaseConfig;
-import nttdata.messalhi.forte.utils.DatabaseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -26,7 +25,7 @@ public class EventsRaceService {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    public ResponseEntity<String> getEventsById(String variable, String id, int pageSize, int pageNumber) {
+    public ResponseEntity<String> getEventsByUserId(String variable, String id, int pageSize, int pageNumber) {
         String sql = buildSqlQueryById(variable, id, pageSize, pageNumber);
         return getEventsBySql(sql);
     }
@@ -35,7 +34,7 @@ public class EventsRaceService {
         return "SELECT * FROM postgres.events WHERE " + variable + " = '" + id + "' LIMIT " + pageSize + " OFFSET " + offset;
     }
 
-    public ResponseEntity<String> getEventsByIdScheduleId(String variable, String id, int pageSize, int pageNumber, String order) {
+    public ResponseEntity<String> getEventsByScheduleId(String variable, String id, int pageSize, int pageNumber, String order) {
         String sql = buildSqlQueryByScheduleId(variable, id, pageSize, pageNumber, order);
         return getEventsBySql(sql);
     }
@@ -60,11 +59,11 @@ public class EventsRaceService {
     }
 
 
-    public ResponseEntity<String> countEventsByScheduleId(String id) {
+    public ResponseEntity<String> countEvents(String variable, String id) {
         try {
-            String sql = "SELECT COUNT(*) FROM events WHERE schedule_id = ?";
+            String sql = "SELECT COUNT(*) FROM postgres.events WHERE "+ variable +" = ?";
             int count = jdbcTemplate.queryForObject(sql, Integer.class, id);
-            return ResponseEntity.ok().body("Count: "+count);
+            return ResponseEntity.ok().body(String.valueOf(count));
         } catch(Exception e) {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
